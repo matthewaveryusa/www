@@ -1,0 +1,150 @@
+body {
+  color: #545149;
+  background-color: #F2F0EB;
+  font-family: "Segoe UI",Arial,sans-serif;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+a {
+  color: #545149;
+  transition: color 0.2s ease
+}
+
+a:hover {
+  color: #a79344;
+}
+
+header {
+  font-size: 1.337em;
+  font-weight: bold;
+  color: white;
+  grid-area: head;
+  background-color: rgba(16, 40, 70, 1);
+  padding: 0.42em;
+}
+
+header > a {
+  color: white;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #e5e7ef;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul > li a {
+  display: block;
+  padding: 0.42em;
+  background-color: #e5e7ef;
+  transition: background-color 0.1s ease
+}
+
+nav > ul > li a:hover {
+  color: rgba(16, 40, 70, 1);
+  background-color: white;
+  font-weight: bold;
+}
+
+main {
+  grid-area: main;
+  background-color: #F2F0EB;
+  padding: 0.42em;
+  min-height: 300px;
+}
+
+footer {
+  grid-area: foot;
+  background-color: rgba(16, 40, 70, 1);
+  color: white;
+  padding: 0.42em;
+}
+
+footer > a {
+  color: white;
+}
+
+section {
+  display: grid;
+  width: 100%;
+  margin: auto;
+  grid-template-areas:  "head"
+                        "main"
+                        "nav"
+                        "foot";
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 1fr;
+}
+
+.media {
+  max-width: 100% !important;
+  height: auto !important;
+  padding-top: 0.42em;
+  padding-bottom: 0.42em;
+}
+
+.video_container_max {
+  width: 100%;
+  max-width:800px;
+  max-height:450px;
+  padding-top: 0.42em;
+  padding-bottom: 0.42em;
+}
+
+.video_container {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.delimiter {
+  color: #841919;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 750px) {
+section {
+  display: grid;
+  width: 80%;
+  margin: auto;
+  grid-template-areas: "head head"
+                       "nav main"
+                       "foot  foot";
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 6fr;
+}
+}
+
+@media only print {
+section {
+  display: grid;
+  width: 100%;
+  margin: auto;
+  grid-template-areas:  "head"
+                        "main"
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+}
+
+nav, footer {
+  display: none;
+}
+
+}
+

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h3 Sitemap 
+    a(href='/sitemap.xml') XML
+  br
+  each page in sitemap
+    if page.date
+      a(href=page.url) #{page.date} -  #{page.title}
+    else
+      a(href=page.url) #{page.title}
+    br

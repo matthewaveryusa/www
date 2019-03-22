@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=devive-width, initial-scale=1.0')
+    title AveryMatt.com - #{title}
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    section#page
+      header
+        a(href="/") AveryMatt.com
+      nav 
+        ul
+          li
+            a(href='/') Home
+      main
+        h1= message
+        h2= error.status
+        pre #{error.stack}
+      footer 
+        - var year = new Date().getFullYear()
+        a(href="/sitemap") sitemap
+        |  |  
+        a(href="/contact") contact
+        |  |  
+        | Copyright © #{year} Matthew Avery

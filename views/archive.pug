@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h3 All #{title} links
+  each page in articles
+    a(href=page.url) #{page.date} -  #{page.name}
+    br
+  h3
+    -const all_url = `/tag/${name}/all`
+    a(href=all_url) Show all #{title} articles in one page

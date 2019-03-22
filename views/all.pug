@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1 #{title}
+  each page in articles
+    h3
+      a(href=page.url) #{page.title}
+    | #{page.date} -  
+    | by 
+    i
+      a(href="/page/contact") Matthew Avery
+    br
+    | tags: 
+    each tag in page.tags
+      - const tag_url = `/tag/${tag}`
+      a(href=tag_url)=tag
+      | 
+    br
+    br
+    | !{page.content}
+    br
+    center.delimiter ≁End Of Article≁
+  br
+  -const archive_url = `/tag/${name}/archive`
+  a(href=archive_url) Show more #{title} articles
+  <br>

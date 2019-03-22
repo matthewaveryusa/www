@@ -1,0 +1,27 @@
+version: '3'
+services:
+  www:
+    image: "averymatt.com/${NAME}"
+    container_name: "${NAME}"
+    restart: unless-stopped
+    networks:
+      - webproxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.averymatt.frontend.rule=Host:${DOMAIN}"
+      - "traefik.averymatt.port=3000"
+      - "traefik.averymatt.protocol=http"
+      - "traefik.wwwaverymatt.frontend.rule=Host:www.${DOMAIN}"
+      - "traefik.wwwaverymatt.port=3000"
+      - "traefik.wwwaverymatt.protocol=http"
+      - "traefik.docker.network=webproxy"
+    environment:
+      - NODE_ENV=production
+    logging:
+      options:
+        max-size: ${LOG_MAX_SIZE:-4m}
+        max-file: ${LOG_MAX_FILE:-10}
+
+networks:
+  webproxy:
+    external: true

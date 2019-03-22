@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h3
+    a(href=url) #{title}
+  | #{date} -  
+  | by 
+  i
+    a(href="/page/contact") Matthew Avery
+  br
+  | tags: 
+  each tag in tags
+    - const tag_url = `/tag/${tag}`
+    a(href=tag_url)=tag
+    | 
+  br
+  br
+  | !{content}

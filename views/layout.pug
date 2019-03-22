@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='google', content="notranslate")
+    title AveryMatt.com - #{title}
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    section#page
+      header
+        a(href="/") AveryMatt.com
+      nav 
+        ul
+          each val in menu
+              li
+                a(href=val[1])= val[0]
+      main
+        block content
+      footer 
+        - var year = new Date().getFullYear()
+        a(href="/sitemap") sitemap
+        |  |  
+        a(href="/contact") contact/about me
+        |  |  
+        | Copyright © #{year} Matthew Avery
